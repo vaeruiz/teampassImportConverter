@@ -1,9 +1,12 @@
 #!/bin/bash
 clear
 
-# FUNCIONES
+# Funciones
 
 # Funcion para reconocer si el primer caracter del campo id es una letra o un numero utiliza la vari$
+# Hay que declarar la variable MUESTREOID=$(cat id$1) cuando se vaya a utilizar la funcion, ej:
+#MUESTREOID=$(cat id$1)
+#primercaracter
 primerCaracter (){
 MUESTREO=$(echo ${MUESTREOID:0:1})
 case $MUESTREO in
@@ -27,54 +30,46 @@ else
   echo 'Archivo utilizado '$1
 fi
 
-# Crea los archivos de trabajo
-cp $1 copia$1
-touch analiza$1
-touch datos$1
-
-# Crea el archivo resultado con la cabecera apropiada
+# Crear fichero con cabecera
 echo 'Label,Login,Password,Url,Comments' >> result$1
 
-# Eliminar linea de encabezado en archivo copia
+# Volcar los datos en una copia y eliminar la cabecera
+cat $1 >> copia$1
 sed -i -e "1d" copia$1
 
-# Obetener primera linea de copia y enviarla a archivo analiza
-head -n 1 copia$1 >> analiza$1
+# Contar las lineas de copia
+LINEASCOPIA=$(cat copia$1 | wc -l)
+echo "El fichero tiene" $LINEASCOPIA "lineas"
 
-# Funcion para separar los datos de la primera linea
-STRING=$(cat analiza$1)
-echo $STRING |tr ";" "\n" >> datos$1
-#sed -i '/^$/d' datos$1
+for (( j=1;j<=$LINEASCOPIA;j++ ))
+do
+# Pasar los datos separados
+STRING=$(head -n 1 copia$1)
+echo $STRING | tr ";" "\n" >> datos$1
 
-# Funcion para pasar los datos
-head -n 1 datos$1 >> id$1
+# Eliminar campo id
+sed -i -e "1d" datos$1
+
+# Pasar campo formato raw a resultado y eliminar las lineas que se han pasado
+LAB=$(head -n 1 datos$1)
+sed -i -e "1d" datos$1
+
+COMM=$(head -n 1 datos$1)
+sed -i -e "1d" datos$1
+
+PASS=$(head -n 1 datos$1)
+sed -i -e "1d" datos$1
+
+LOGI=$(head -n 1 datos$1)
+sed -i -e "1d" datos$1
 
 sed -i -e "1d" datos$1
-ID=$(cat id$1)
-
-head -n 1 datos$1 >> label$1
 sed -i -e "1d" datos$1
-LAB=$(cat label$1)
 
-head -n 1 datos$1 >> login$1
-sed -i -e "1d" datos$1
-LOGI=$(cat login$1)
-
-head -n 1 datos$1 >> pass$1
-sed -i -e "1d" datos$1
-PASS=$(cat pass$1)
-
-head -n 1 datos$1 >> url$1
-sed -i -e "1d" datos$1
-URL=$(cat url$1)
-
-head -n 1 datos$1 >> comment$1
-sed -i -e "1d" datos$1
-COMM=$(cat comment$1)
+URL=$(head -n 1 datos$1)
 
 LINESTRING="${LAB},${LOGI},${PASS},${URL},${COMM}"
 echo $LINESTRING >> result$1
-
-# Llamada a la funcion primerCaracter
-MUESTREOID=$(cat id$1)
-primerCaracter
+sed -i -e "1d" copia$1
+truncate -s 0 datos$1
+done
