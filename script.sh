@@ -73,3 +73,6 @@ echo $LINESTRING >> result$1
 sed -i -e "1d" copia$1
 truncate -s 0 datos$1
 done
+
+# Eliminar ficheros no necesarios
+rm copia$1 datos$1
