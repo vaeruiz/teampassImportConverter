@@ -4,7 +4,7 @@ clear
 
 # FUNCIONES
 
-# Funcion para reconocer si el primer caracter del campo id es una letra o un numero utiliza la variable STRING
+# Funcion para reconocer si el primer caracter del campo id es una letra o un numero utiliza la vari$
 primerCaracter (){
 MUESTREO=$(echo ${MUESTREOID:0:1})
 case $MUESTREO in
@@ -24,6 +24,7 @@ then
   echo 'Recuerda escribir el nombre del archivo y su extension al usar el script'
   echo 'E.j: ./format.sh archivoConvertir.csv'
   exit
+
 else
   echo 'Archivo utilizado '$1
 fi
@@ -47,9 +48,8 @@ STRING=$(cat analiza$1)
 echo $STRING |tr ";" "\n" >> datos$1
 sed -i '/^$/d' datos$1
 
-
 # Traspaso de datos
-head -n 1 datos$1 >>id$1
+head -n 1 datos$1 >> id$1
 sed -i -e "1d" datos$1
 ID=$(cat id$1)
 
@@ -57,7 +57,11 @@ head -n 1 datos$1 >> label$1
 sed -i -e "1d" datos$1
 LAB=$(cat label$1)
 
-LINESTRING="${ID} ${LAB}"
+head -n 1 datos$1 >> login$1
+sed -i -e "1d" datos$1
+LOGI=$(cat login$1)
+
+#LINESTRING="${LAB},${LOGI}"
 echo $LINESTRING >>result$1
 
 # Llamada a la funcion primerCaracter
