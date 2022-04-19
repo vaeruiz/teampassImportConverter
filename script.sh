@@ -1,4 +1,3 @@
-
 #!/bin/bash
 clear
 
@@ -45,10 +44,11 @@ head -n 1 copia$1 >> analiza$1
 # Funcion para separar los datos de la primera linea
 STRING=$(cat analiza$1)
 echo $STRING |tr ";" "\n" >> datos$1
-sed -i '/^$/d' datos$1
+#sed -i '/^$/d' datos$1
 
-# Traspaso de datos
+# Funcion para pasar los datos
 head -n 1 datos$1 >> id$1
+
 sed -i -e "1d" datos$1
 ID=$(cat id$1)
 
@@ -60,11 +60,21 @@ head -n 1 datos$1 >> login$1
 sed -i -e "1d" datos$1
 LOGI=$(cat login$1)
 
-#LINESTRING="${LAB},${LOGI}"
-echo $LINESTRING >>result$1
+head -n 1 datos$1 >> pass$1
+sed -i -e "1d" datos$1
+PASS=$(cat pass$1)
+
+head -n 1 datos$1 >> url$1
+sed -i -e "1d" datos$1
+URL=$(cat url$1)
+
+head -n 1 datos$1 >> comment$1
+sed -i -e "1d" datos$1
+COMM=$(cat comment$1)
+
+LINESTRING="${LAB},${LOGI},${PASS},${URL},${COMM}"
+echo $LINESTRING >> result$1
 
 # Llamada a la funcion primerCaracter
 MUESTREOID=$(cat id$1)
 primerCaracter
-
-#rm analiza$1 copia$1 datos$1
