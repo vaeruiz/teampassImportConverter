@@ -24,7 +24,6 @@ then
   echo 'Recuerda escribir el nombre del archivo y su extension al usar el script'
   echo 'E.j: ./format.sh archivoConvertir.csv'
   exit
-
 else
   echo 'Archivo utilizado '$1
 fi
