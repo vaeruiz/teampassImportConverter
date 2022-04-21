@@ -48,13 +48,15 @@ STRING=$(head -n 1 copia$1)
 echo $STRING | tr ";" "\n" >> datos$1
 
 # Eliminar campo id
+
+# Eliminar campo id
 sed -i -e "1d" datos$1
 
 # Pasar campo formato raw a resultado y eliminar las lineas que se han pasado
 LAB=$(head -n 1 datos$1)
 sed -i -e "1d" datos$1
 
-COMM=$(head -n 1 datos$1)
+#COMM=$(head -n 1 datos$1)
 sed -i -e "1d" datos$1
 
 PASS=$(head -n 1 datos$1)
@@ -76,3 +78,5 @@ done
 
 # Eliminar ficheros no necesarios
 rm copia$1 datos$1
+
+truncate -s 0 archivo.csv
