@@ -8,10 +8,13 @@ Fixes the formatting errors when exporting csv items in Teampass
 2. Deletes the comments/description field (the csv generator change characters like ñ to N&ia for example), you can use excel or any spreadsheet processor (I also recommend removing commas and double-quotes from the file to avoid errors when converting the file).
 3. Send the file to your linux system where the script is located.
 4. Before using the script, make sure it has the proper execute permissions.
-5. Type:
+5. Type and execute:
 >./script.sh fileToConvertName.csv
 
-### [Link to issue in Teampass Github](https://github.com/nilsteampassnet/TeamPass/issues/3133) 
+**A file named result will be created followed by the name of the file you used (like resultTeampass.csv), make sure everything is correct**
+
+
+### [Link to the issue in Teampass Github](https://github.com/nilsteampassnet/TeamPass/issues/3133) 
 
 ## Note
-Feel free to take the measures you see appropriate to achieve a better conversion:
+Feel free to take the steps you deem appropriate to achieve a better conversion and share it! :D
