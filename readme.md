@@ -14,7 +14,7 @@ Fixes format errors before export csv items in Teampass
 1. Download the csv with the items (if it redirects you to hacking attempt, click again on export objects and download, repeat until the file is downloaded).
 2. Deletes the comments/description field (the csv generator change characters like ñ to N&ia for example), you can use excel or any spreadsheet processor (I also recommend removing commas and double-quotes from the file to avoid errors when converting the file).
 3. Send the file to your linux system where the script is located.
-4. Before using the script, make sure it has the proper execute permissions.
+4. Before use the script, make sure it has the proper execute permissions.
 5. Type and execute:
 >./script.sh fileToConvertName.csv
 
