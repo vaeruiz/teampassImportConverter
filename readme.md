@@ -7,7 +7,7 @@
 
 # TeampassImportConverter
 
-Fixes the formatting errors when exporting csv items in Teampass
+Fixes format errors before export csv items in Teampass
 
 ## How to use
 
