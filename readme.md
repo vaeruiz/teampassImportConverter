@@ -1,6 +1,6 @@
 # Despliegue de Teampass versión 2.1.27.36
 
-## Requisitos previos
+## Requisitos mínimos previos
 - **Sistema operativo**: Preferiblemente Ubuntu server por tener mayor soporte, aunque también se puede trabajar con otras distribuciones GNU/Linux.
 - **Dirección IP de máquina estática/fija.**
 - **Pila LAMP (Linux, Apache, MySQL y PHP).**
