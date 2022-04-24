@@ -17,7 +17,7 @@ case $MUESTREO in
         echo "El primer caracter es una letra"
   ;;
 esac
-}
+
 ###################
 
 # Comprueba que se ha pasado el archivo a corregir como parametro
