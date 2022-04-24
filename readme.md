@@ -18,25 +18,18 @@ Se puede hacer uso del script incluido llamado deployteampass.sh para la configu
 
 Buscar los siguientes parámetros y cambiarlos por los valores indicados:
 
->memory_limit = por memory_limit = 256M
-
->upload_max_filesize = por upload_max_filesize = 100M
-
->max_execution_time = por max_execution_time = 360
-
->;date.timezone = por date.timezone = Europe/Madrid
+    memory_limit = por memory_limit = 256M
+    upload_max_filesize = por upload_max_filesize = 100M
+    max_execution_time = por max_execution_time = 360
+    ;date.timezone = por date.timezone = Europe/Madrid
 
 3. Crear base de datos (automatizado en el script)
 
->mysql -u root
-
->ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOTPW';
-
->CREATE DATABASE teampass;
-
->GRANT ALL PRIVILEGES ON teampass.* TO teampass@localhost IDENTIFIED BY "ContraseñaDelUsuarioTeampass";
-
->exit;
+       mysql -u root
+       ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOTPW';
+       CREATE DATABASE teampass;
+       GRANT ALL PRIVILEGES ON teampass.* TO teampass@localhost IDENTIFIED BY "ContraseñaDelUsuarioTeampass";
+       exit;
 
 4. Movernos al directorio /var/www/html, descargar Teampass 2.1.27.36, extraerlo y cambiar nombre (automatizado en el sript)
 
