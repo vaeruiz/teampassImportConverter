@@ -39,5 +39,7 @@ wget https://github.com/nilsteampassnet/TeamPass/archive/refs/tags/2.1.27.36.zip
 unzip "2.1.27.36.zip"
 mv "TeamPass-2.1.27.36" teampass
 rm "2.1.27.36.zip"
+mkdir /var/www/sk
+chmod 777 /var/www/sk
 chown -R www-data.www-data /var/www/html/teampass/
 chmod -R 775 /var/www/html/teampass/
