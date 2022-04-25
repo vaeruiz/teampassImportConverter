@@ -36,7 +36,6 @@ mysql -u root -p$DB_ROOTPW <<< "FLUSH PRIVILEGES;"
 # Movernos al directorio /var/www/html, descargar Teampas 2.1.27.36 y realizar configuraciones
 cd /var/www/html
 wget https://github.com/nilsteampassnet/TeamPass/archive/refs/tags/2.1.27.36.zip
-exit
 unzip "2.1.27.36.zip"
 mv "TeamPass-2.1.27.36" teampass
 rm "2.1.27.36.zip"
