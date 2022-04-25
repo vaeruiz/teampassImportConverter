@@ -43,3 +43,12 @@ mkdir /var/www/sk
 chmod 777 /var/www/sk
 chown -R www-data.www-data /var/www/html/teampass/
 chmod -R 775 /var/www/html/teampass/
+
+clear
+
+echo "Recuerda que la clave del usuario root que has establecido para mysql es" $DB_ROOTPW
+echo "Recuerda que el nombre de usuario que has establecido para la base de datos de Teampass es" $DB_USERNM
+echo "Recuerda que la clave del usuario $DB_USERNM que has establecido para mysql es" $DB_USERPW
+
+read -p "Presiona enter para salir del script"
+
