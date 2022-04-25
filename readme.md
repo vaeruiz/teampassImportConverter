@@ -26,7 +26,7 @@ Buscar los siguientes parámetros y cambiarlos por los valores indicados:
 3. Crear base de datos (automatizado en el script).
 
        mysql -u root
-       ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOTPW';
+       ALTER USER 'root'@'localhost' IDENTIFIED BY 'ContraseñaUsuarioRoot';
        CREATE DATABASE teampass;
        GRANT ALL PRIVILEGES ON teampass.* TO teampass@localhost IDENTIFIED BY "ContraseñaDelUsuarioTeampass";
        exit;
@@ -54,8 +54,6 @@ Se puede eliminar el .zip descargado ya que no lo vamos a utilizar más
 >mkdir /var/www/sk
 
 >chmod 777 /var/www/sk
-
-
 
 **Nota, a partir de aquí los pasos dejan de estar automatizados en el script**
 
